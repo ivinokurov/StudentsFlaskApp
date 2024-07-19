@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/students.css') }}">
+<script src="{{ url_for('static', filename='js/students.js') }}"></script>
+<div class="row justify-content-center">
+    <h4><b>Информация о студентах</b></h4>
+    <br>
+    <!-- Выпадающий список с названиями групп -->
+    <div class="row">
+        <div class="col-md-2 float-end">
+            <label for="groupFilter"><b>Поиск по группе:</b></label>
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" id="groupFilter">
+                <option value="{{ -1 }}">{{ "Все группы" }}</option>                
+                {% for item in groups %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <br><br>
+    <!-- Таблица со студентами -->    
+    <div id="infoTable" style="padding-top: 10px;">
+        <table class="table table-hover" style="cursor: pointer; padding-top: 10px;">
+            <thead>
+                <tr>
+                    <th style="display: none; width:1%">id</th>
+                    <!-- <th style="width:10px;"></th>   -->
+                    <th class="col-2">Имя</th>
+                    <th>Телефон</th>
+                    <th>№ билета</th>
+                    <th>Группа</th>
+                    <th>Кафедра</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in students %}
+                {% if item.id == item.group.chief %}
+                <tr class = "table-light">
+                    {% else %}
+                <tr>
+                    {% endif %}
+                    <td style="display: none;">{{ item.id }}</td>
+                    <!-- <td> 
+                        {% if item.id == item.group.chief %} 
+                            {{font_awesome.render_icon("fas fa-person", style='color:red')}} 
+                        {% endif %}</td> -->
+                    <td class="col-2"> {{ item.name }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>{{ item.card }}</td>
+                    <td>{{ item.group.name }}</td>
+                    <td>{{ item.group.department.name }}</td>
+                </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Актуализация информации о студентах -->    
+    {% if role == 'admin' %}
+    <div class="margin-top-6 col-md-7 bg-light">
+        <br>
+        <h4><b>Актуализация информации о студентах</b></h4>
+        <form action="addstudent" method="POST" style="padding: 10px; border-radius:10px;">
+
+            <div style="display: none;">
+                <label for="id">Id:</label>
+                <input type="text" id="id" name="id" class="form-control">
+            </div>
+
+            <label for="name"><b>Имя:</b></label>
+            <input type="text" id="name" name="name" required class="form-control">
+
+            <label for="phone"><b>Телефон:</b></label>
+            <input type="text" id="phone" name="phone" class="form-control">
+
+            <label for="card"><b>№ билета:</b></label>
+            <input type="text" id="card" name="card" required class="form-control">
+
+            <label for="groups"><b>Группа:</b></label>
+            <select id="groups" name="groupId" class="form-select">
+                {% for item in groups %}
+                    <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+
+            <div style="padding-top: 10px; padding-bottom: 10px;">
+                <input class="form-check-input" type="checkbox" id="chief" name="chief"/>
+                <label class="form-check-label"><b>Староста группы</b></label>
+            </div>
+
+            <input type="submit" value="Добавить" class="btn btn-success margin-top-6">
+        </form>
+        <div style="padding-left: 110px; margin-top: -54px;">
+            <button id="alter" class="btn btn-warning margin-top-6">Изменить</button>
+            <button id="remove" class="btn btn-danger margin-top-6">Удалить</button>
+        </div>
+        <br>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

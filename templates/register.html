@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}  
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+<body>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 bg-light border-1">    
+                <h4><b>Регистрация нового пользователя</b></h4>
+                <div style="padding: 10px; border-radius:10px;">
+                    <label for="username"><b>Имя:</b></label>
+                    <input type="text" id="username" name="username" required class="form-control">
+                    <label for="password"><b>Пароль:</b></label>
+                    <input type="password" id="password" name="password" required class="form-control">
+                    <label for="role"><b>Роль:</b></label>
+                    <select id="role" name="role" class="form-select">
+                        <option value="user">Пользователь</option>
+                        <option value="admin">Администратор</option>
+                    </select>  
+                    <div style="padding-top: 10px;">
+                        <button id="register" class="btn btn-primary margin-top-6 center_button">Зарегистрировать</button>
+                    </div>                    
+                </div>                 
+            </div>
+        </div>
+    </div>
+    {% if role == 'admin' %}
+    <br>
+    <h4><b>Зарегистрированные пользователи</b></h4>
+    <!-- Таблица с пользователями -->  
+    <div id="infoTable" style="padding-top: 10px;">
+        <table class="table table-hover" style="cursor: pointer;">
+            <thead>
+                <tr>
+                    <th style="display: none;">id</th>
+                    <th class="col-4">Логин</th>
+                    <th>Роль</th>   
+                    <th></th>                 
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in users %}
+                {% if item.role == "admin" %}
+                <tr class = "table-light">
+                    {% else %}
+                <tr>
+                    {% endif %}
+                    <td style="display: none;">{{ item.id }}</td>
+                    <td class="col-4">{{ item.username }}</td>
+                    {% if item.role == "admin" %}
+                        <td class="col-4">Администратор</td>
+                        {% else %}
+                        <td class="col-4">Пользователь</td>                        
+                        {% endif %}      
+                    <td><button id="{{ item.id }}" name="removeUser" class="btn btn-danger col">Удалить</button></td>                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>   
+    {% endif %} 
+{% endblock %}    

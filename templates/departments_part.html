@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/departments.css') }}">
+<script src="{{ url_for('static', filename='js/departments.js') }}"></script>
+<div class="row justify-content-center">
+    <h4><b>Информация о кафедрах</b></h4>
+    <br> 
+    <!-- Таблица с названиями кафедр -->  
+    <div id="infoTable" style="padding-top: 10px;">
+        <table class="table table-hover" style="cursor: pointer;">
+            <thead>
+                <tr>
+                    <th style="display: none;">id</th>
+                    <th class="col-6">Кафедра</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in departments %}
+                <tr>
+                    <td style="display: none;">{{ item.id }}</td>
+                    <td class="col-6">{{ item.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Актуализация информации о кафедрах -->    
+    {% if role == 'admin' %}
+    <div class="margin-top-6 col-md-7 bg-light">
+        <br>
+        <h4><b>Актуализация информации о кафедре</b></h4>
+        <form action="adddepartment" method="POST" style="padding: 10px; border-radius:10px;">
+
+            <div style="display: none;">
+                <label for = "id">Id:</label>
+                <input type="text" id="id" name="id" class="form-control">
+            </div>
+
+            <label for="name"><b>Кафедра:</b></label>
+            <input type="text" id="name" name="name" required class="form-control">
+
+            <input type="submit" value="Добавить" class="btn btn-success margin-top-6">
+        </form>
+        <div style="padding-left: 110px; margin-top: -54px;">
+            <button id="alter" class="btn btn-warning margin-top-6">Изменить</button>
+            <button id="remove" class="btn btn-danger margin-top-6">Удалить</button>
+        </div>
+        <br>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

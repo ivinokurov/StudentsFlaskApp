@@ -1,0 +1,16 @@
+.center_button {
+    margin: 0 auto;
+    display: block;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.col{
+    display:inline-flex;
+    float:right;
+}  

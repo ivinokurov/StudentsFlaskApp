@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/groups.css') }}">
+<script src="{{ url_for('static', filename='js/groups.js') }}"></script>
+<div class="row justify-content-center">
+    <h4><b>Информация о студенческих группах</b></h4>
+    <br>
+    <!-- Выпадающий список с названиями кафедр -->
+    <div class="row">
+        <div class="col-md-2 text-right">
+            <label for="deptFilter"><b>Поиск по кафедре:</b></label>
+        </div>
+        <div class="col-md-4">
+            <select class="form-select" id="deptFilter">
+                <option value="{{ -1 }}">{{ "Все кафедры" }}</option>                   
+                {% for item in departments %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <br><br>    
+    <!-- Таблица с названиями групп -->
+    <div id="infoTable" style="padding-top: 10px;">
+        <table class="table table-hover" style="cursor: pointer;">
+            <thead>
+                <tr>
+                    <th style="display: none;">id</th>
+                    <th class="col-2">Группа</th>
+                    <th>Кафедра</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in groups %}
+                <tr>
+                    <td style="display: none;">{{ item.id }}</td>
+                    <td class="col-2">{{ item.name }}</td>
+                    <td>{{ item.department.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Актуализация информации о группах -->
+    {% if role == 'admin' %}
+    <div class="margin-top-6 col-md-7 bg-light">
+        <br>
+        <h4><b>Актуализация информации о группе</b></h4>
+        <form action="addgroup" method="POST" style="padding: 10px; border-radius:10px;">
+
+            <div style="display: none;">
+                <label for = "id">Id:</label>
+                <input type="text" id="id" name="id" class="form-control">
+            </div>
+
+            <label for="name"><b>Группа:</b></label>
+            <input type="text" id="name" name="name" required class="form-control">
+
+            <label for="departments"><b>Кафедра:</b></label>
+            <select id="departments" name="deptId" class="form-select">
+                {% for item in departments %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Добавить" class="btn btn-success margin-top-6">
+        </form>
+        <div style="padding-left: 110px; margin-top: -54px;">
+            <button id="alter" class="btn btn-warning margin-top-6">Изменить</button>
+            <button id="remove" class="btn btn-danger margin-top-6">Удалить</button>
+        </div>
+        <br>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
