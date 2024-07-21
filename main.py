@@ -1,7 +1,7 @@
 from flask import Flask, g, request, render_template, redirect, url_for, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from entities import app, db, Student, StudentGroup, Department, User
-from functools import wraps
+from waitress import serve
 
 user_role = None
 
@@ -375,4 +375,5 @@ def home():
     return render_template('home.html', role = user_role)
 
 if __name__ == '__main__':
-    app.run(host = "127.0.0.1", port = 5050, debug = True)
+    # app.run(host = "127.0.0.1", port = 5050, debug = True)
+    serve(app, host = "127.0.0.1", port = 5050)
