@@ -2,10 +2,10 @@ from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from flask_font_awesome import FontAwesome
+#from flask_font_awesome import FontAwesome
 
 app = Flask(__name__)
-font_awesome = FontAwesome(app)     #pip install Font-Awesome-Flask (https://github.com/sgraaf/font-awesome-flask) https://flask.palletsprojects.com/en/latest/
+#font_awesome = FontAwesome(app)     #pip install Font-Awesome-Flask (https://github.com/sgraaf/font-awesome-flask) https://flask.palletsprojects.com/en/latest/
 db_name = "Students"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://.\sqlexpress/' + db_name + '?driver=SQL+Server'  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
