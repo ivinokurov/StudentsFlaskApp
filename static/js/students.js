@@ -41,7 +41,7 @@ $(document).ready(function () {
         $('#phone').val(phone);
         $('#card').val(card);
         $("#groups").val($("#groups option:contains('" + group + "')").val()).change();
-        if ($(this).hasClass("table-light")) {
+        if ($(this).hasClass("table-active")) {
             $('#chief').prop('checked', true);
         } else {
             $('#chief').prop('checked', false);

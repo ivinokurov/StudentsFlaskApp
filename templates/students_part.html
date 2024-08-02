@@ -37,11 +37,15 @@
             <tbody>
                 {% for item in students %}
                 {% if item.id == item.group.chief %}
-                <tr class = "table-light">
+                <tr class = "table-active">
                     {% else %}
                 <tr>
                     {% endif %}
                     <td style="display: none;">{{ item.id }}</td>
+                    <!-- <td> 
+                        {% if item.id == item.group.chief %} 
+                            {{font_awesome.render_icon("fas fa-person", style='color:red')}} 
+                        {% endif %}</td> -->
                     <td class="col-2"> {{ item.name }}</td>
                     <td>{{ item.phone }}</td>
                     <td>{{ item.card }}</td>
@@ -54,7 +58,7 @@
     </div>
     <!-- Актуализация информации о студентах -->    
     {% if role == 'admin' %}
-    <div class="margin-top-6 col-md-7 bg-light">
+    <div class="margin-top-6 col-md-7 border border-1">
         <br>
         <h4><b>Актуализация информации о студентах</b></h4>
         <form action="addstudent" method="POST" style="padding: 10px; border-radius:10px;">

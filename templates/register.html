@@ -6,7 +6,7 @@
     <br>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-5 bg-light border-1">    
+            <div class="col-md-5 border border-1">    
                 <h4><b>Регистрация нового пользователя</b></h4>
                 <div style="padding: 10px; border-radius:10px;">
                     <label for="username"><b>Имя:</b></label>
@@ -42,7 +42,7 @@
             <tbody>
                 {% for item in users %}
                 {% if item.role == "admin" %}
-                <tr class = "table-light">
+                <tr class = "table-active">
                     {% else %}
                 <tr>
                     {% endif %}
@@ -53,7 +53,7 @@
                         {% else %}
                         <td class="col-4">Пользователь</td>                        
                         {% endif %}      
-                    <td><button id="{{ item.id }}" name="removeUser" class="btn btn-danger col">Удалить</button></td>                  
+                    <td><button id="{{ item.id }}" name="removeUser" class="btn btn-danger btn-sm col">Удалить</button></td>                  
                 </tr>
                 {% endfor %}
             </tbody>

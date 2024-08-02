@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">    
     <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>    
+    {{ font_awesome.load_js() }}
     <title>Студенты вуза</title>
 </head>
 
-<body>
+<body {{ 'data-bs-theme=dark' if session['theme'] == 'dark' else 'data-bs-theme="light"' }}>
     <!-- Модальный диалог для отображения сообщения об ошибке -->
     <div class="modal" id="errModal">
         <div class="modal-dialog">
@@ -52,7 +54,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <!-- <h2>Информационная система "Студенты вуза"</h2> -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar navbar-expand-lg { 'navbar-dark' if session['theme'] == 'dark' else 'navbar-light' }">
                     {% if role is defined %}
                     <ul class="navbar-nav mr-auto"> 
                         <li class="nav-item active"><a class="nav-link" href="{{ url_for('students') }}">Студенты</a> </li>
@@ -73,6 +75,10 @@
                         {% endif %}                        
                         <li class="nav-item active"><a class="btn btn-warning margin-top-6 margin-right-6" href="{{ url_for('logout') }}">Выйти</a> </li>
                     </ul>
+                    <div style="padding-top: 10px; padding-bottom: 10px;">
+                        <input class="form-check-input" type="checkbox" id="themeToggle" disabled {{ 'checked' if session['theme'] == 'dark' else '' }}>
+                        <label class="form-check-label" for="themeToggle">Темная тема</label>
+                    </div>
                 </nav>
                 <!-- Остальное содержимое страницы --> 
                 {% block content %} {% endblock %}       

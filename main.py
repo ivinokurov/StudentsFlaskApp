@@ -1,4 +1,4 @@
-from flask import Flask, g, request, render_template, redirect, url_for, jsonify
+from flask import Flask, g, request, render_template, redirect, url_for, jsonify, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from entities import app, db, Student, StudentGroup, Department, User
 from waitress import serve
@@ -373,6 +373,15 @@ def logout():
 @app.route('/home')
 def home():
     return render_template('home.html', role = user_role)
+
+""" Тема оформления """
+
+
+@app.route('/toggle_theme', methods=['POST'])
+def toggle_theme():
+    dark_theme = request.form.get('dark_theme') == 'true'
+    session['theme'] = 'dark' if dark_theme else 'light'  # Сохраняем тему
+    return jsonify(success=dark_theme)  # Возвращаем выбранную тему в формате JSON
 
 if __name__ == '__main__':
     app.run(host = "127.0.0.1", port = 5050, debug = True)

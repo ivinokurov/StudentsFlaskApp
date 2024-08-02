@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
 <div class="row justify-content-center">
     <h4><b>Информационная система "Студенты вуза"</b></h4>
         <br><br>
@@ -16,7 +17,7 @@
             <hr>  
             <div class="row">
                 <div class="col-md-12">
-                    <div class="text-center">&copy;<script>document.write(new Date().getFullYear());</script>, КФ Финуниверситета</div>
+                    <div class="text-center">&copy;<script>document.write(new Date().getFullYear());</script>, Винокуров И.В.</div>
                 </div>
             </div>
         </div>                         
