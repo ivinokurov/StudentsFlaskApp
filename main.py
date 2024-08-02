@@ -377,7 +377,7 @@ def home():
 """ Тема оформления """
 
 
-@app.route('/toggle_theme', methods=['POST'])
+@app.route('/toggle_theme', methods = ['POST'])
 def toggle_theme():
     dark_theme = request.form.get('dark_theme') == 'true'
     session['theme'] = 'dark' if dark_theme else 'light'  # Сохраняем тему
