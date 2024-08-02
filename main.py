@@ -384,5 +384,7 @@ def toggle_theme():
     return jsonify(success=dark_theme)  # Возвращаем выбранную тему в формате JSON
 
 if __name__ == '__main__':
+    # Запуск в Visaul Studio Code
     app.run(host = "127.0.0.1", port = 5050, debug = True)
+    # Запуск в Waitress   
     # serve(app, host = "127.0.0.1", port = 5050)
