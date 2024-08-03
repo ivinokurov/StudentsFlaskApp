@@ -28,13 +28,15 @@ http://127.0.0.1:5050
 ```
 Ввести имя и пароль для входа администратора или обычного пользователя - admin, admin или user, user соответсвенно.
 
-<p align="center" width="100%">
+<p align="center" width="100%" style="text-align: center;">
     <img src="Images/Login.png" alt="Авторизация пользователя" width="360" align="middle">
-    <span style="vertical-align: middle;">&nbsp;&nbsp;Окно для входа нового пользователя </span>
+    <i>Окно для входа нового пользователя</i>i
+</p>
 </p>
 
 После входа вы будуте перенаправлены на страницу со списком студентов. Дальнейшая работа с веб-приложением интуитивно понятна.
 
-<p align="center" width="100%">
+<p align="center" width="100%" style="text-align: center;">
     <img src="Images/StudentsDark.png" alt="Страница со студентами" align="middle">
+    <i>Страница со списком студентов</i>i
 </p>
