@@ -30,7 +30,7 @@ http://127.0.0.1:5050
 
 <p align="center" width="100%" style="text-align: center;">
     <img src="Images/Login.png" alt="Авторизация пользователя" width="360" align="middle">
-    <i>Окно для входа нового пользователя</i>i
+    <i>Окно для входа нового пользователя</i>
 </p>
 </p>
 
@@ -38,5 +38,5 @@ http://127.0.0.1:5050
 
 <p align="center" width="100%" style="text-align: center;">
     <img src="Images/StudentsDark.png" alt="Страница со студентами" align="middle">
-    <i>Страница со списком студентов</i>i
+    <i>Страница со списком студентов</i>
 </p>
