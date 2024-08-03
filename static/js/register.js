@@ -1,6 +1,9 @@
 
 $(document).ready(function () {
 
+    $('#username').attr('autocomplete', 'off');
+    $('#password').attr('autocomplete', 'off');
+
     let searchParams = new URLSearchParams(window.location.search)
     // Отображение модального окна при добавлении пользователя с существующим в БД логином
     if (searchParams.get('msg') == "exists") {
@@ -20,7 +23,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/removeuser',
+            url: '/remove_user',
             data: { 'id': id },
             success: function (response) {                
                 // Перезагрузка страницы

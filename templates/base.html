@@ -66,6 +66,7 @@
                         <li class="nav-item active"><a class="nav-link" href="{{ url_for('home') }}">О приложении</a></li>                                                                         
                     </ul>
                     {% endif %}
+                    <!-- Тип пользователя -->
                     <ul class="navbar-nav ms-auto mb-2">
                         {% if role == 'admin' %}
                             <li class="nav-item active margin-top-12 margin-right-6" style="color: red; vertical-align: middle;"> Администратор</li>
@@ -75,8 +76,10 @@
                         {% endif %}                        
                         <li class="nav-item active"><a class="btn btn-warning margin-top-6 margin-right-6" href="{{ url_for('logout') }}">Выйти</a> </li>
                     </ul>
+                    <!-- Выбор темы оформления -->
                     <div style="padding-top: 10px; padding-bottom: 10px;">
-                        <input class="form-check-input" type="checkbox" id="themeToggle" disabled {{ 'checked' if session['theme'] == 'dark' else '' }}>
+                        <input class="form-check-input" type="checkbox" id="themeToggle" disabled 
+                            {{ 'checked' if session['theme'] == 'dark' else '' }}>
                         <label class="form-check-label" for="themeToggle">Темная тема</label>
                     </div>
                 </nav>

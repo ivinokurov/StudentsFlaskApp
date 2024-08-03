@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/removedepartment',
+            url: '/remove_department',
             data: { 'departmentId': id },
             success: function (response) {
                 // Перезагрузка страницы
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/alterdepartment',
+            url: '/alter_department',
             data: { 'id': id, 'name': department_name },
             success: function (response) {                
                 // Перезагрузка страницы

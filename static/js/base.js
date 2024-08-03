@@ -3,7 +3,7 @@ $(document).ready(function() {
         $.ajax({
             url: '/toggle_theme', 
             method: 'POST',
-            // Отправляем состояние чекбокса
+            // Отправляем состояние флажка
             data: { dark_theme: $(this).is(':checked') },  
             success: function(response) {
                 location.reload();              

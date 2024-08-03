@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/removegroup',
+            url: '/remove_group',
             data: { 'groupId': id },
             success: function (response) {
                 // Перезагрузка страницы
@@ -97,7 +97,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/altergroup',
+            url: '/alter+group',
             data: { 'id': id, 'name': group_name, 'deptId': deptId },
             success: function (response) {                
                 // Перезагрузка страницы

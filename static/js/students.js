@@ -54,7 +54,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/removestudent',
+            url: '/remove_student',
             data: { 'id': studentId, 'chief': chief },
             success: function (response) {
                 // Перезагрузка страницы
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/alterstudent',
+            url: '/alter_student',
             data: { 'id': id, 'name': student_name, 'phone': student_phone, 'card': student_card, 'groupId': groupId, 'chief': chief },
             success: function (response) {                
                 // Перезагрузка страницы

@@ -37,7 +37,7 @@ def get_student_id(name, phone, card, group_id):
     return student.id
 
 # Роут для добавления студента
-@app.route('/addstudent', methods = ['GET', 'POST'])
+@app.route('/add_student', methods = ['GET', 'POST'])
 def add_student():
     if request.method == 'POST':
         student_name = request.form['name']
@@ -65,7 +65,7 @@ def add_student():
     return redirect(url_for('students') + '?msg=' + msg)
 
 # Роут для изменения студента (студентов)
-@app.route('/alterstudent', methods = ['GET', 'POST'])
+@app.route('/alter_student', methods = ['GET', 'POST'])
 def alter_student():
     if request.method == 'POST':
         student_id = int(request.values.get('id'))        
@@ -112,7 +112,7 @@ def is_chief(student_id, group_id):
     return group.chief == student_id
 
 # Роут для удаления студента (студентов)
-@app.route('/removestudent', methods = ['GET', 'POST'])
+@app.route('/remove_student', methods = ['GET', 'POST'])
 def remove_student():
     if request.method == 'POST':
         student_id = int(request.values.get('id')) 
@@ -150,7 +150,7 @@ def is_group_exists(name, dept_id):
         return False 
 
 # Роут для добавления группы
-@app.route('/addgroup', methods = ['GET', 'POST'])
+@app.route('/add_group', methods = ['GET', 'POST'])
 def add_group():
     if request.method == 'POST':
         group_name = request.form['name']
@@ -166,7 +166,7 @@ def add_group():
     return redirect(url_for('groups') + '?msg=' + msg)        
 
 # Роут для изменения группы (групп)
-@app.route('/altergroup', methods = ['GET', 'POST'])
+@app.route('/alter_group', methods = ['GET', 'POST'])
 def alter_group():
     if request.method == 'POST':
         group_id = int(request.values.get('id'))        
@@ -187,7 +187,7 @@ def alter_group():
     return jsonify({"msg": msg})
 
 # Роут для удаления группы (групп)
-@app.route('/removegroup', methods = ['GET', 'POST'])
+@app.route('/remove_group', methods = ['GET', 'POST'])
 def remove_group():
     if request.method == 'POST':
         group_id = request.values.get('groupId')     
@@ -232,7 +232,7 @@ def is_department_exists(name):
         return False 
     
 # Роут для добавления кафедры
-@app.route('/adddepartment', methods = ['GET', 'POST'])
+@app.route('/add_department', methods = ['GET', 'POST'])
 def add_department():
     if request.method == 'POST':
         department_name = request.form['name']
@@ -247,7 +247,7 @@ def add_department():
     return redirect(url_for('departments') + '?msg=' + msg)  
 
 # Роут для изменения кафедры (кафедр)
-@app.route('/alterdepartment', methods = ['GET', 'POST'])
+@app.route('/alter_department', methods = ['GET', 'POST'])
 def alter_department():
     if request.method == 'POST':
         department_id = int(request.values.get('id'))        
@@ -265,7 +265,7 @@ def alter_department():
     return jsonify({"msg": msg}) 
 
 # Роут для удаления кафедры (кафедр)
-@app.route('/removedepartment', methods = ['GET', 'POST'])
+@app.route('/remove_department', methods = ['GET', 'POST'])
 def remove_department():
     if request.method == 'POST':
         department_id = request.values.get('departmentId')     
@@ -325,8 +325,8 @@ def register():
         return render_template('login.html')   
 
 # Роут для удаления пользователя
-@app.route('/removeuser', methods = ['GET', 'POST'])
-def removeuser():
+@app.route('/remove_user', methods = ['GET', 'POST'])
+def remove_user():
     if request.method == 'POST':
         user_id = request.values.get('id')
 
