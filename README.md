@@ -10,7 +10,7 @@
 - Создать БД Students в СУБД SQL Server (students.sql)
 - Клонировать репозиторий GitHub в любую папку, например, StudentFlaskApp
  ```bash
-git clone https://github.com/ivinokurov/StudentsFlask.git StudentFlaskApp
+git clone https://github.com/ivinokurov/StudentsFlaskApp.git StudentFlaskApp
 ```
 - Перейти в папку StudentFlaskApp
  ```bash
