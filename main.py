@@ -388,3 +388,5 @@ if __name__ == '__main__':
     app.run(host = "127.0.0.1", port = 5050, debug = True)
     # Запуск в Waitress   
     # serve(app, host = "127.0.0.1", port = 5050)
+
+# GitHub Developer Token: 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
