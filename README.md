@@ -7,7 +7,7 @@
 
 ## Установка
 Для установки приложения необходимо выполнить следующие действия:
-- Создать БД Students в СУБД SQL Server (students.sql)
+- Создать БД Students в СУБД SQL Server (students.sql). Имя сервера .\sqlexpress, аутентификация Windows
 - Клонировать репозиторий GitHub в любую папку, например, StudentFlaskApp
  ```bash
 git clone https://github.com/ivinokurov/StudentsFlaskApp.git StudentFlaskApp
