@@ -37,6 +37,6 @@ http://127.0.0.1:5050
 После входа вы будуте перенаправлены на страницу со списком студентов. Дальнейшая работа с веб-приложением является интуитивно понятной.
 
 <p align="center" width="100%" style="text-align: center;">
-    <img src="Images/StudentsDark.png" alt="Страница со студентами" align="middle">
+    <img src="Images/Students.png" alt="Страница со студентами" align="middle">
     <i>Страница со списком студентов</i>
 </p>
