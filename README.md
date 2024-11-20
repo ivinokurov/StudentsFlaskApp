@@ -30,7 +30,7 @@ http://127.0.0.1:5050
 
 <p align="center" width="100%" style="text-align: center;">
     <img src="Images/Login.png" alt="Авторизация пользователя" align="middle">
-    <i>Окно для входа нового пользователя</i>
+    <br><i>Окно для входа нового пользователя</i>
 </p>
 </p>
 
